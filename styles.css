@@ -3,11 +3,12 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #333;
+    background-color: #121212; /* Black background */
+    color: #FFFFFF; /* White text */
 }
 
 header {
-    background: linear-gradient(to right, #4CAF50, #2F8F46);
+    background: linear-gradient(to right, #ff5722, #ff9800); /* Vibrant gradient */
     color: white;
     padding: 1rem 0;
     position: sticky;
@@ -34,12 +35,6 @@ header nav a:hover {
     text-decoration: underline;
 }
 
-main {
-    padding: 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
-
 #hero {
     text-align: center;
     padding: 4rem 2rem;
@@ -53,7 +48,7 @@ main {
 }
 
 #hero .btn {
-    background: #4CAF50;
+    background: #ff5722;
     color: white;
     padding: 0.5rem 1rem;
     text-decoration: none;
@@ -62,27 +57,44 @@ main {
 }
 
 #hero .btn:hover {
-    background: #2F8F46;
+    background: #e64a19;
 }
 
-#features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+#skills {
     margin-top: 4rem;
     text-align: center;
 }
 
-.feature-card {
-    background: #f4f4f4;
-    padding: 2rem;
-    border-radius: 5px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+#skills .skill-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
 }
 
-.feature-card h3 {
+.skill-card {
+    background: #1E1E1E; /* Dark grey card */
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.skill-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.skill-card img {
+    width: 100%;
+    border-radius: 8px;
     margin-bottom: 1rem;
-    color: #4CAF50;
+}
+
+.skill-card h3 {
+    margin-bottom: 0.5rem;
+    color: #ff9800;
 }
 
 #contact {
@@ -100,12 +112,14 @@ main {
 #contact input, #contact textarea {
     width: 100%;
     padding: 1rem;
-    border: 1px solid #ddd;
+    border: none;
     border-radius: 5px;
+    background: #2C2C2C; /* Darker input fields */
+    color: white;
 }
 
 #contact button {
-    background: #4CAF50;
+    background: #ff5722;
     color: white;
     border: none;
     padding: 1rem;
@@ -114,12 +128,12 @@ main {
 }
 
 #contact button:hover {
-    background: #2F8F46;
+    background: #e64a19;
 }
 
 footer {
     text-align: center;
-    background: #333;
+    background: #1E1E1E; /* Footer with dark background */
     color: white;
     padding: 1rem;
 }
