@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy - Explore & Exchange Skills</title>
+    <title>Skillchemy - Futuristic Skill Exchange</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,40 +14,32 @@
                 <a href="about.html">About</a>
                 <a href="dashboard.html">Dashboard</a>
                 <a href="#skills">Skills</a>
+                <a href="#questions">Questions</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
     <main>
         <section id="hero">
-            <h2>Discover and Share Skills</h2>
-            <p>Join a community of learners and experts. Explore skills, share knowledge, and grow together!</p>
+            <h2>Future of Learning and Sharing</h2>
+            <p>Exchange your skills or subject knowledge in a vibrant community. Join us now!</p>
             <a href="login.html" class="btn">Get Started</a>
         </section>
         <section id="skills">
-            <h2>Explore Skills</h2>
-            <div class="skill-list">
-                <div class="skill-card">
-                    <img src="https://source.unsplash.com/300x200/?coding" alt="Coding">
-                    <h3>Coding</h3>
-                    <p>Learn the latest programming languages and frameworks.</p>
-                </div>
-                <div class="skill-card">
-                    <img src="https://source.unsplash.com/300x200/?photography" alt="Photography">
-                    <h3>Photography</h3>
-                    <p>Master the art of capturing stunning photos.</p>
-                </div>
-                <div class="skill-card">
-                    <img src="https://source.unsplash.com/300x200/?painting" alt="Painting">
-                    <h3>Painting</h3>
-                    <p>Express your creativity with brush strokes and colors.</p>
-                </div>
-                <!-- Add more skills here -->
+            <h2>Barter Skills</h2>
+            <div class="skill-list" id="skillList">
+                <!-- Skills will be dynamically added here -->
+            </div>
+        </section>
+        <section id="questions">
+            <h2>Barter Questions</h2>
+            <div class="question-list" id="questionList">
+                <!-- Questions will be dynamically added here -->
             </div>
         </section>
         <section id="contact">
             <h2>Contact Us</h2>
-            <form>
+            <form id="contactForm">
                 <input type="text" placeholder="Your Name" required>
                 <input type="email" placeholder="Your Email" required>
                 <textarea placeholder="Your Message"></textarea>
@@ -58,5 +50,6 @@
     <footer>
         <p>&copy; 2024 Skillchemy. All rights reserved.</p>
     </footer>
+    <script src="script.js"></script>
 </body>
 </html>
