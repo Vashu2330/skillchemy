@@ -3,23 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Skillchemy - Learn & Share Skills</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Welcome to Skillchemy</h1>
-        <nav>
-            <a href="about.html">About</a>
-            <a href="dashboard.html">Dashboard</a>
-        </nav>
+        <div class="container">
+            <h1>Skillchemy</h1>
+            <nav>
+                <a href="about.html">About</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="#features">Features</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
     </header>
     <main>
-        <section>
-            <h2>Learn and Teach Skills for Free</h2>
-            <p>Connect with people who want to share their knowledge or learn new skills.</p>
-            <a href="login.html">Get Started</a>
+        <section id="hero">
+            <h2>Unlock Your Potential</h2>
+            <p>Learn and share skills with a vibrant community. No money involved—just passion for growth.</p>
+            <a href="login.html" class="btn">Get Started</a>
+        </section>
+        <section id="features">
+            <h2>Features</h2>
+            <div class="feature-card">
+                <h3>Learn</h3>
+                <p>Find experts to teach you the skills you want.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Teach</h3>
+                <p>Share your knowledge and help others grow.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Connect</h3>
+                <p>Join a thriving community of learners and teachers.</p>
+            </div>
+        </section>
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message"></textarea>
+                <button type="submit" class="btn">Send</button>
+            </form>
         </section>
     </main>
+    <footer>
+        <p>&copy; 2024 Skillchemy. All rights reserved.</p>
+    </footer>
 </body>
 </html>
