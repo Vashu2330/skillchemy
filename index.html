@@ -3,72 +3,73 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy - Barter Skills and Knowledge</title>
+    <title>Skillchemy - Barter Your Skills</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <!-- Header -->
     <header>
-        <div class="navbar">
+        <div class="container">
             <div class="logo">Skillchemy</div>
             <nav>
-                <a href="#skills">Skills</a>
-                <a href="#questions">Questions</a>
                 <a href="#about">About</a>
+                <a href="#barter">Barter Skills</a>
+                <a href="#signup">Sign Up</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
 
+    <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>Barter Skills. Exchange Knowledge.</h1>
-            <p>Unlock a world where learning and teaching are connected through collaboration.</p>
-            <a href="#skills" class="cta-button">Explore Now</a>
+            <h1>Unlock Your Potential with Skill Bartering</h1>
+            <p>Join a community of learners and teachers exchanging skills and knowledge.</p>
+            <a href="#barter" class="cta-button">Barter Skills Now</a>
         </div>
     </section>
 
-    <section id="skills">
+    <!-- Skills Barter Section -->
+    <section id="barter">
         <h2>Barter Your Skills</h2>
-        <div class="card-container">
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?coding" alt="Coding">
-                <h3>Coding</h3>
-                <p>Learn or teach programming skills in various languages.</p>
-            </div>
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?design" alt="Design">
-                <h3>Graphic Design</h3>
-                <p>Share your creativity or learn design fundamentals.</p>
-            </div>
-            <div class="card">
-                <img src="https://source.unsplash.com/300x200/?writing" alt="Writing">
-                <h3>Creative Writing</h3>
-                <p>Enhance storytelling or improve writing techniques.</p>
-            </div>
-        </div>
+        <form id="barterForm">
+            <input type="text" placeholder="Skill you want to barter" required>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="text" placeholder="Your Contact Number" required>
+            <button type="submit" class="cta-button">Submit</button>
+        </form>
     </section>
 
-    <section id="questions">
-        <h2>Exchange Subject Knowledge</h2>
-        <div class="question-container">
-            <div class="question-card">
-                <h3>Physics Questions</h3>
-                <p>Barter knowledge on physics problems and solutions.</p>
-            </div>
-            <div class="question-card">
-                <h3>Math Challenges</h3>
-                <p>Exchange expertise on algebra, calculus, and more.</p>
-            </div>
-            <div class="question-card">
-                <h3>Programming Concepts</h3>
-                <p>Collaborate to solve algorithm and coding challenges.</p>
-            </div>
-        </div>
+    <!-- Sign-Up Section -->
+    <section id="signup">
+        <h2>Join Skillchemy</h2>
+        <p>Sign up to barter skills, connect with others, and grow your knowledge.</p>
+        <form id="signupForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <input type="password" placeholder="Create a Password" required>
+            <button type="submit" class="cta-button">Sign Up</button>
+        </form>
     </section>
 
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm">
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit" class="cta-button">Send</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Skillchemy. Designed for Collaboration and Growth.</p>
+        <p>&copy; 2024 Skillchemy. All Rights Reserved.</p>
     </footer>
+
     <script src="script.js"></script>
 </body>
 </html>

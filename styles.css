@@ -3,8 +3,8 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    color: #ffffff;
     background: #121212;
+    color: #ffffff;
 }
 
 header {
@@ -19,7 +19,7 @@ header {
 }
 
 header .logo {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #4cc9f0;
 }
@@ -35,9 +35,10 @@ header nav a:hover {
     color: #4cc9f0;
 }
 
+/* Hero Section */
 #hero {
     height: 90vh;
-    background: url('https://source.unsplash.com/1600x900/?future,technology') no-repeat center/cover;
+    background: url('https://source.unsplash.com/1600x900/?skills,technology') no-repeat center/cover;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -60,7 +61,6 @@ header nav a:hover {
     color: #ffffff;
     padding: 0.7rem 1.5rem;
     border-radius: 5px;
-    font-size: 1.2rem;
     text-decoration: none;
     font-weight: bold;
     transition: background 0.3s ease;
@@ -70,62 +70,51 @@ header nav a:hover {
     background: #4895ef;
 }
 
+/* Sections */
 section {
     padding: 3rem 2rem;
     text-align: center;
 }
 
 section h2 {
+    font-size: 2.5rem;
+    color: #4cc9f0;
     margin-bottom: 2rem;
-    font-size: 2rem;
-    color: #4cc9f0;
 }
 
-.card-container, .question-container {
+form {
+    max-width: 400px;
+    margin: 0 auto;
     display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1rem;
 }
 
-.card, .question-card {
+form input, form textarea {
+    padding: 0.8rem;
+    border: none;
+    border-radius: 5px;
     background: #1e1e1e;
-    border-radius: 8px;
-    padding: 1rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: #ffffff;
 }
 
-.card:hover, .question-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.8);
+form button {
+    background: #4cc9f0;
+    color: #ffffff;
+    padding: 0.7rem;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
-.card img {
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 1rem;
+form button:hover {
+    background: #4895ef;
 }
 
-.card h3, .question-card h3 {
-    color: #4cc9f0;
-}
-
+/* Footer */
 footer {
     background: #1f1f1f;
-    color: #ffffff;
-    padding: 1rem 0;
     text-align: center;
-}
-/* Smooth Fade-in for Sections */
-section.hidden {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1s ease, transform 1s ease;
-}
-
-section.visible {
-    opacity: 1;
-    transform: translateY(0);
+    padding: 1rem;
+    color: #ffffff;
+    font-size: 0.9rem;
 }
