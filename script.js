@@ -1,5 +1,27 @@
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyCfcL3Bfe4kexC9dAu20UOe40c5IjLDO4w",
+  authDomain: "skillchemy-d9a1a.firebaseapp.com",
+  projectId: "skillchemy-d9a1a",
+  storageBucket: "skillchemy-d9a1a.firebasestorage.app",
+  messagingSenderId: "1050504846984",
+  appId: "1:1050504846984:web:ce8d681433729f9052893d",
+  measurementId: "G-5MJ8RGJ9QZ"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
+  
+  // Smooth scrolling for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
       e.preventDefault();
       document.querySelector(this.getAttribute('href')).scrollIntoView({
