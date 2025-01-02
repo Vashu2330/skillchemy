@@ -3,52 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy - Futuristic Skill Exchange</title>
+    <title>Skillchemy - Barter Skills and Knowledge</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <div class="container">
-            <h1>Skillchemy</h1>
+        <div class="navbar">
+            <div class="logo">Skillchemy</div>
             <nav>
-                <a href="about.html">About</a>
-                <a href="dashboard.html">Dashboard</a>
                 <a href="#skills">Skills</a>
                 <a href="#questions">Questions</a>
+                <a href="#about">About</a>
                 <a href="#contact">Contact</a>
             </nav>
         </div>
     </header>
-    <main>
-        <section id="hero">
-            <h2>Future of Learning and Sharing</h2>
-            <p>Exchange your skills or subject knowledge in a vibrant community. Join us now!</p>
-            <a href="login.html" class="btn">Get Started</a>
-        </section>
-        <section id="skills">
-            <h2>Barter Skills</h2>
-            <div class="skill-list" id="skillList">
-                <!-- Skills will be dynamically added here -->
+
+    <section id="hero">
+        <div class="hero-content">
+            <h1>Barter Skills. Exchange Knowledge.</h1>
+            <p>Unlock a world where learning and teaching are connected through collaboration.</p>
+            <a href="#skills" class="cta-button">Explore Now</a>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Barter Your Skills</h2>
+        <div class="card-container">
+            <div class="card">
+                <img src="https://source.unsplash.com/300x200/?coding" alt="Coding">
+                <h3>Coding</h3>
+                <p>Learn or teach programming skills in various languages.</p>
             </div>
-        </section>
-        <section id="questions">
-            <h2>Barter Questions</h2>
-            <div class="question-list" id="questionList">
-                <!-- Questions will be dynamically added here -->
+            <div class="card">
+                <img src="https://source.unsplash.com/300x200/?design" alt="Design">
+                <h3>Graphic Design</h3>
+                <p>Share your creativity or learn design fundamentals.</p>
             </div>
-        </section>
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <form id="contactForm">
-                <input type="text" placeholder="Your Name" required>
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message"></textarea>
-                <button type="submit" class="btn">Send</button>
-            </form>
-        </section>
-    </main>
+            <div class="card">
+                <img src="https://source.unsplash.com/300x200/?writing" alt="Writing">
+                <h3>Creative Writing</h3>
+                <p>Enhance storytelling or improve writing techniques.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="questions">
+        <h2>Exchange Subject Knowledge</h2>
+        <div class="question-container">
+            <div class="question-card">
+                <h3>Physics Questions</h3>
+                <p>Barter knowledge on physics problems and solutions.</p>
+            </div>
+            <div class="question-card">
+                <h3>Math Challenges</h3>
+                <p>Exchange expertise on algebra, calculus, and more.</p>
+            </div>
+            <div class="question-card">
+                <h3>Programming Concepts</h3>
+                <p>Collaborate to solve algorithm and coding challenges.</p>
+            </div>
+        </div>
+    </section>
+
     <footer>
-        <p>&copy; 2024 Skillchemy. All rights reserved.</p>
+        <p>&copy; 2024 Skillchemy. Designed for Collaboration and Growth.</p>
     </footer>
     <script src="script.js"></script>
 </body>
