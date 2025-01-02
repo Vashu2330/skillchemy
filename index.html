@@ -1,129 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy - Barter Skills</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skillchemy - Exchange Skills, Grow Together</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">Skillchemy</div>
-            <nav>
-                <a href="#hero">Home</a>
-                <a href="#barter">Barter Skills</a>
-                <a href="#skills-carousel">Skills</a>
-                <a href="#subjects-carousel">Subjects</a>
-                <a href="#custom-subjects">Add Subjects</a>
-                <a href="#signup">Sign Up</a>
-                <a href="#contact">Contact</a>
-            </nav>
-        </div>
-    </header>
+  <!-- Navbar -->
+  <nav>
+    <div class="logo">Skillchemy</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#testimonials">Testimonials</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a href="#" class="btn-signup">Sign Up</a></li>
+    </ul>
+  </nav>
 
-    <!-- Hero Section -->
-    <section id="hero">
-        <div class="hero-content">
-            <h1>Unlock Your Potential with Skillchemy</h1>
-            <p>Join a community where skills and knowledge are exchanged freely.</p>
-            <a href="#barter" class="cta-button">Start Bartering</a>
-        </div>
-    </section>
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1>Exchange Skills, Grow Together</h1>
+      <p>Join Skillchemy to barter your skills and learn something new—no money, just knowledge.</p>
+      <a href="#skills" class="btn-get-started">Get Started</a>
+    </div>
+  </section>
 
-    <!-- Skills Barter Section -->
-    <section id="barter">
-        <h2>Barter Your Skills</h2>
-        <form id="barterForm">
-            <input type="text" placeholder="Skill you want to barter" required>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="text" placeholder="Your Contact Number" required>
-            <button type="submit" class="cta-button">Submit</button>
-        </form>
-    </section>
+  <!-- Skills Section -->
+  <section id="skills" class="skills">
+    <h2>What Skills Do You Want to Barter?</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <h3>Skills You Have</h3>
+        <input type="text" id="skill-have" placeholder="Enter your skill (e.g., Web Development)">
+        <ul id="skill-have-list" class="skill-list"></ul>
+      </div>
+      <div class="skill-card">
+        <h3>Skills You Want</h3>
+        <input type="text" id="skill-want" placeholder="Enter the skill you want (e.g., Graphic Design)">
+        <ul id="skill-want-list" class="skill-list"></ul>
+      </div>
+    </div>
+    <button class="btn-submit" onclick="findMatch()">Find a Match</button>
+  </section>
 
-    <!-- Skills Carousel -->
-    <section id="skills-carousel">
-        <h2>Explore Popular Skills</h2>
-        <div class="carousel" id="skillsSlider">
-            <div class="carousel-item">Programming</div>
-            <div class="carousel-item">Graphic Design</div>
-            <div class="carousel-item">Content Writing</div>
-            <div class="carousel-item">Digital Marketing</div>
-            <div class="carousel-item">Photography</div>
-        </div>
-    </section>
+  <!-- Testimonials Section -->
+  <section id="testimonials" class="testimonials">
+    <h2>What Our Users Say</h2>
+    <div class="testimonials-container">
+      <div class="testimonial-card">
+        <p>"Skillchemy helped me learn graphic design in exchange for teaching web development. It's a game-changer!"</p>
+        <h4>- John Doe</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"I found a great mentor for photography and taught someone else cooking. Highly recommend!"</p>
+        <h4>- Jane Smith</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"The platform is easy to use, and the community is very supportive. Love it!"</p>
+        <h4>- Alex Brown</h4>
+      </div>
+    </div>
+  </section>
 
-    <!-- Academic Subjects Carousel -->
-    <section id="subjects-carousel">
-        <h2>Learn Academic Subjects</h2>
-        <div class="carousel" id="subjectsSlider">
-            <div class="carousel-item">Mathematics</div>
-            <div class="carousel-item">Physics</div>
-            <div class="carousel-item">Chemistry</div>
-            <div class="carousel-item">History</div>
-            <div class="carousel-item">Biology</div>
-        </div>
-    </section>
+  <!-- FAQ Section -->
+  <section id="faq" class="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-container">
+      <div class="faq-item">
+        <h3>How does Skillchemy work? <i class="fas fa-chevron-down"></i></h3>
+        <p>Skillchemy allows you to list skills you can teach and skills you want to learn. The platform matches you with others for skill exchange.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Is Skillchemy free? <i class="fas fa-chevron-down"></i></h3>
+        <p>Yes, Skillchemy is completely free to use. There are no hidden fees or charges.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How do I sign up? <i class="fas fa-chevron-down"></i></h3>
+        <p>Click the "Sign Up" button on the top right corner and fill out the registration form.</p>
+      </div>
+    </div>
+  </section>
 
-    <!-- Custom Subjects Section -->
-    <section id="custom-subjects">
-        <h2>Add Your Custom Subjects</h2>
-        <form id="customSubjectsForm">
-            <label for="course">Select Your Course:</label>
-            <select id="course" name="course">
-                <option value="bsc">BSc</option>
-                <option value="btech">BTech</option>
-                <option value="bcom">BCom</option>
-                <option value="other">Other (Specify Below)</option>
-            </select>
+  <!-- Contact Section -->
+  <section id="contact" class="contact">
+    <h2>Get in Touch</h2>
+    <form id="contact-form">
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <input type="text" placeholder="Your Contact Number" required>
+      <textarea placeholder="Your Message" rows="5"></textarea>
+      <button type="submit" class="btn-submit">Submit</button>
+    </form>
+  </section>
 
-            <label for="customCourse">Add Custom Course (if not listed):</label>
-            <input type="text" id="customCourse" name="customCourse" placeholder="Enter your course name">
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Skillchemy. All rights reserved.</p>
+  </footer>
 
-            <label for="subjects">Add Subjects:</label>
-            <textarea id="subjects" name="subjects" placeholder="Enter subjects separated by commas" required></textarea>
-
-            <button type="submit" class="cta-button">Submit</button>
-        </form>
-
-        <div id="submittedSubjects">
-            <h3>Submitted Subjects:</h3>
-            <ul id="subjectsList"></ul>
-        </div>
-    </section>
-
-    <!-- Sign-Up Section -->
-    <section id="signup">
-        <h2>Join Skillchemy</h2>
-        <p>Sign up to connect with learners and teachers worldwide.</p>
-        <form id="signupForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <input type="password" placeholder="Create a Password" required>
-            <button type="submit" class="cta-button">Sign Up</button>
-        </form>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2>Contact Us</h2>
-        <form id="contactForm">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit" class="cta-button">Send</button>
-        </form>
-    </section>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2024 Skillchemy. All Rights Reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

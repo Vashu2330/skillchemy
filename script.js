@@ -1,50 +1,53 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Form Submit Events
-    const barterForm = document.getElementById('barterForm');
-    const signupForm = document.getElementById('signupForm');
-    const contactForm = document.getElementById('contactForm');
-    const customSubjectsForm = document.getElementById('customSubjectsForm');
-    const subjectsList = document.getElementById('subjectsList');
-
-    barterForm.addEventListener('submit', event => {
-        event.preventDefault();
-        alert('Barter form submitted! We will connect you soon.');
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
     });
-
-    signupForm.addEventListener('submit', event => {
-        event.preventDefault();
-        alert('Sign-up successful! Welcome to Skillchemy.');
+  });
+  
+  // Form submission handling
+  document.getElementById('contact-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    alert('Thank you for contacting us! We will get back to you soon.');
+    this.reset();
+  });
+  
+  // Skills Section - Add skills to list
+  document.getElementById('skill-have').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const skill = this.value.trim();
+      if (skill) {
+        const li = document.createElement('li');
+        li.textContent = skill;
+        document.getElementById('skill-have-list').appendChild(li);
+        this.value = '';
+      }
+    }
+  });
+  
+  document.getElementById('skill-want').addEventListener('keypress', function (e) {
+    if (e.key === 'Enter') {
+      const skill = this.value.trim();
+      if (skill) {
+        const li = document.createElement('li');
+        li.textContent = skill;
+        document.getElementById('skill-want-list').appendChild(li);
+        this.value = '';
+      }
+    }
+  });
+  
+  // Find Match Button
+  function findMatch() {
+    alert('Finding matches for you...');
+  }
+  
+  // FAQ Section - Toggle answers
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('active');
     });
-
-    contactForm.addEventListener('submit', event => {
-        event.preventDefault();
-        alert('Thank you for reaching out! We will respond shortly.');
-    });
-
-    customSubjectsForm.addEventListener('submit', event => {
-        event.preventDefault();
-        const course = document.getElementById('course').value;
-        const customCourse = document.getElementById('customCourse').value || 'N/A';
-        const subjects = document.getElementById('subjects').value.split(',');
-
-        subjects.forEach(subject => {
-            const li = document.createElement('li');
-            li.textContent = `${subject.trim()} (Course: ${customCourse || course})`;
-            subjectsList.appendChild(li);
-        });
-
-        alert('Subjects added successfully!');
-        customSubjectsForm.reset();
-    });
-
-    // Smooth Scrolling for Navigation
-    const navLinks = document.querySelectorAll('header nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', event => {
-            event.preventDefault();
-            const targetId = event.target.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            targetElement.scrollIntoView({ behavior: 'smooth' });
-        });
-    });
-});
+  });
