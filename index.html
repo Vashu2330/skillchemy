@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skillchemy - Barter Your Skills</title>
+    <title>Skillchemy - Barter Skills</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
@@ -13,8 +13,11 @@
         <div class="container">
             <div class="logo">Skillchemy</div>
             <nav>
-                <a href="#about">About</a>
+                <a href="#hero">Home</a>
                 <a href="#barter">Barter Skills</a>
+                <a href="#skills-carousel">Skills</a>
+                <a href="#subjects-carousel">Subjects</a>
+                <a href="#custom-subjects">Add Subjects</a>
                 <a href="#signup">Sign Up</a>
                 <a href="#contact">Contact</a>
             </nav>
@@ -24,9 +27,9 @@
     <!-- Hero Section -->
     <section id="hero">
         <div class="hero-content">
-            <h1>Unlock Your Potential with Skill Bartering</h1>
-            <p>Join a community of learners and teachers exchanging skills and knowledge.</p>
-            <a href="#barter" class="cta-button">Barter Skills Now</a>
+            <h1>Unlock Your Potential with Skillchemy</h1>
+            <p>Join a community where skills and knowledge are exchanged freely.</p>
+            <a href="#barter" class="cta-button">Start Bartering</a>
         </div>
     </section>
 
@@ -42,10 +45,61 @@
         </form>
     </section>
 
+    <!-- Skills Carousel -->
+    <section id="skills-carousel">
+        <h2>Explore Popular Skills</h2>
+        <div class="carousel" id="skillsSlider">
+            <div class="carousel-item">Programming</div>
+            <div class="carousel-item">Graphic Design</div>
+            <div class="carousel-item">Content Writing</div>
+            <div class="carousel-item">Digital Marketing</div>
+            <div class="carousel-item">Photography</div>
+        </div>
+    </section>
+
+    <!-- Academic Subjects Carousel -->
+    <section id="subjects-carousel">
+        <h2>Learn Academic Subjects</h2>
+        <div class="carousel" id="subjectsSlider">
+            <div class="carousel-item">Mathematics</div>
+            <div class="carousel-item">Physics</div>
+            <div class="carousel-item">Chemistry</div>
+            <div class="carousel-item">History</div>
+            <div class="carousel-item">Biology</div>
+        </div>
+    </section>
+
+    <!-- Custom Subjects Section -->
+    <section id="custom-subjects">
+        <h2>Add Your Custom Subjects</h2>
+        <form id="customSubjectsForm">
+            <label for="course">Select Your Course:</label>
+            <select id="course" name="course">
+                <option value="bsc">BSc</option>
+                <option value="btech">BTech</option>
+                <option value="bcom">BCom</option>
+                <option value="other">Other (Specify Below)</option>
+            </select>
+
+            <label for="customCourse">Add Custom Course (if not listed):</label>
+            <input type="text" id="customCourse" name="customCourse" placeholder="Enter your course name">
+
+            <label for="subjects">Add Subjects:</label>
+            <textarea id="subjects" name="subjects" placeholder="Enter subjects separated by commas" required></textarea>
+
+            <button type="submit" class="cta-button">Submit</button>
+        </form>
+
+        <div id="submittedSubjects">
+            <h3>Submitted Subjects:</h3>
+            <ul id="subjectsList"></ul>
+        </div>
+    </section>
+
     <!-- Sign-Up Section -->
     <section id="signup">
         <h2>Join Skillchemy</h2>
-        <p>Sign up to barter skills, connect with others, and grow your knowledge.</p>
+        <p>Sign up to connect with learners and teachers worldwide.</p>
         <form id="signupForm">
             <input type="text" placeholder="Your Name" required>
             <input type="email" placeholder="Your Email" required>

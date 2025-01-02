@@ -90,7 +90,7 @@ form {
     gap: 1rem;
 }
 
-form input, form textarea {
+form input, form textarea, form select {
     padding: 0.8rem;
     border: none;
     border-radius: 5px;
@@ -108,6 +108,29 @@ form button {
 
 form button:hover {
     background: #4895ef;
+}
+
+/* Carousel Styles */
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    background: #1e1e1e;
+    color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 5px;
+    text-align: center;
+    min-width: 200px;
+    transition: transform 0.3s;
+}
+
+.carousel-item:hover {
+    transform: scale(1.1);
 }
 
 /* Footer */
