@@ -1,23 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-import { getFirestore, collection, addDoc, doc, updateDoc, getDocs, query, where } from "firebase/firestore";
-
-// Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyCfcL3Bfe4kexC9dAu20UOe40c5IjLDO4w",
-  authDomain: "skillchemy-d9a1a.firebaseapp.com",
-  projectId: "skillchemy-d9a1a",
-  storageBucket: "skillchemy-d9a1a.appspot.com",
-  messagingSenderId: "1050504846984",
-  appId: "1:1050504846984:web:ce8d681433729f9052893d",
-  measurementId: "G-5MJ8RGJ9QZ"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
-
 // Global variables to store skills
 let skillsHave = [];
 let skillsWant = [];
@@ -91,90 +71,118 @@ window.addEventListener('click', (e) => {
 const signupForm = document.getElementById('signup-form');
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const email = signupForm['email'].value;
-  const password = signupForm['password'].value;
+  const email = signupForm.querySelector('input[type="email"]').value;
+  const password = signupForm.querySelector('input[type="password"]').value;
 
-  createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      const user = userCredential.user;
-      // Store user data in Firestore
-      const usersRef = collection(db, 'users');
-      addDoc(usersRef, {
-        uid: user.uid,
-        email: user.email,
-        skillsHave: [],
-        skillsWant: []
-      }).then(() => {
-        alert('Sign-up successful!');
-        signupForm.reset();
-        signupModal.style.display = 'none';
-      }).catch((error) => {
-        alert('Error saving user data: ' + error.message);
-      });
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+  // Here you can add your MongoDB logic to handle user registration
+  alert('Sign-up successful!');
+  signupForm.reset();
+  signupModal.style.display = 'none';
+});
+
+// FAQ Toggle Functionality
+document.querySelectorAll('.faq-item h3').forEach((faqQuestion) => {
+  faqQuestion.addEventListener('click', () => {
+    const faqItem = faqQuestion.parentElement;
+    const faqAnswer = faqItem.querySelector('p');
+
+    // Toggle the active class
+    faqItem.classList.toggle('active');
+
+    // Toggle the visibility of the answer
+    if (faqItem.classList.contains('active')) {
+      faqAnswer.style.display = 'block';
+    } else {
+      faqAnswer.style.display = 'none';
+    }
+  });
 });
 
 // Find Match Functionality
 function findMatch() {
-  const user = auth.currentUser;
-  if (!user) {
-    alert('Please sign in to find matches.');
-    return;
-  }
-
   if (skillsHave.length === 0 || skillsWant.length === 0) {
     alert('Please add your skills before finding a match.');
     return;
   }
 
-  // Update user's skills in Firestore
-  const userRef = doc(db, 'users', user.uid);
-  updateDoc(userRef, {
-    skillsHave: skillsHave,
-    skillsWant: skillsWant
-  }).then(() => {
-    // Query Firestore for matches
-    const usersRef = collection(db, 'users');
-    const q = query(usersRef, 
-      where('skillsHave', 'array-contains-any', skillsWant),
-      where('skillsWant', 'array-contains-any', skillsHave),
-      where('uid', '!=', user.uid) // Exclude the current user
-    );
+  // Example of displaying matches (replace with actual data from your backend)
+  const exampleMatches = [
+    {
+      email: 'user1@example.com',
+      skillsHave: ['Graphic Design', 'Photography'],
+      skillsWant: ['Web Development', 'Cooking']
+    },
+    {
+      email: 'user2@example.com',
+      skillsHave: ['Cooking', 'Music Production'],
+      skillsWant: ['Graphic Design', 'Photography']
+    }
+  ];
 
-    getDocs(q).then((querySnapshot) => {
-      const matchesContainer = document.getElementById('matches-container');
-      matchesContainer.innerHTML = ''; // Clear previous matches
+  const matchesContainer = document.getElementById('matches-container');
+  matchesContainer.innerHTML = ''; // Clear previous matches
 
-      if (querySnapshot.docs.length > 0) {
-        querySnapshot.forEach((doc) => {
-          const matchUser = doc.data();
-          const matchDiv = document.createElement('div');
-          matchDiv.innerHTML = `
-            <p><strong>Email:</strong> ${matchUser.email}</p>
-            <p><strong>Skills They Have:</strong> ${matchUser.skillsHave.join(', ')}</p>
-            <p><strong>Skills They Want:</strong> ${matchUser.skillsWant.join(', ')}</p>
-          `;
-          matchesContainer.appendChild(matchDiv);
-        });
-      } else {
-        matchesContainer.innerHTML = '<p>No matches found.</p>';
-      }
-    }).catch((error) => {
-      alert('Error finding matches: ' + error.message);
+  if (exampleMatches.length > 0) {
+    exampleMatches.forEach((match) => {
+      const matchDiv = document.createElement('div');
+      matchDiv.classList.add('match-card');
+      matchDiv.innerHTML = `
+        <p><strong>Email:</strong> ${match.email}</p>
+        <p><strong>Skills They Have:</strong> ${match.skillsHave.join(', ')}</p>
+        <p><strong>Skills They Want:</strong> ${match.skillsWant.join(', ')}</p>
+      `;
+      matchesContainer.appendChild(matchDiv);
     });
-  }).catch((error) => {
-    alert('Error updating skills: ' + error.message);
-  });
+  } else {
+    matchesContainer.innerHTML = '<p>No matches found.</p>';
+  }
 }
 
-// Check if user is signed in
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('User is signed in:', user.email);
-  } else {
-    console.log('No user is signed in.');
+// Example of integrating with a backend API (replace with your actual API endpoint)
+async function fetchMatches() {
+  try {
+    const response = await fetch('/api/matches', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        skillsHave,
+        skillsWant
+      })
+    });
+    const data = await response.json();
+    return data.matches; // Assuming the API returns an array of matches
+  } catch (error) {
+    console.error('Error fetching matches:', error);
+    return [];
   }
+}
+
+// Example of updating the matches section with real data
+async function updateMatches() {
+  const matches = await fetchMatches();
+  const matchesContainer = document.getElementById('matches-container');
+  matchesContainer.innerHTML = ''; // Clear previous matches
+
+  if (matches.length > 0) {
+    matches.forEach((match) => {
+      const matchDiv = document.createElement('div');
+      matchDiv.classList.add('match-card');
+      matchDiv.innerHTML = `
+        <p><strong>Email:</strong> ${match.email}</p>
+        <p><strong>Skills They Have:</strong> ${match.skillsHave.join(', ')}</p>
+        <p><strong>Skills They Want:</strong> ${match.skillsWant.join(', ')}</p>
+      `;
+      matchesContainer.appendChild(matchDiv);
+    });
+  } else {
+    matchesContainer.innerHTML = '<p>No matches found.</p>';
+  }
+}
+
+// Call updateMatches() when the page loads or when the user clicks "Find a Match"
+document.addEventListener('DOMContentLoaded', () => {
+  // Example: Fetch matches when the page loads
+  updateMatches();
 });
